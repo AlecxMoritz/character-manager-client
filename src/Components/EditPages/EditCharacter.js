@@ -34,7 +34,6 @@ class EditCharacter extends React.Component {
             dexterity : this.props.location.state.character.dexterity,
             intelligence : this.props.location.state.character.intelligence,
             strength : this.props.location.state.character.strength,
-            strength : this.props.location.state.character.strength,
             wisdom : this.props.location.state.character.wisdom,
         }
     }

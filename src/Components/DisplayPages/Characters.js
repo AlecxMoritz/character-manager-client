@@ -1,6 +1,12 @@
 import React from 'react';
 import { Button, Container, Col, Row } from 'reactstrap';
 import CharacterOverview from '../OverviewViews/CharacterOverview';
+import { Link } from 'react-router-dom';
+
+const buttonStyles = {
+    color : 'white',
+    textDecoration: 'none'
+};
 
 class Characters extends React.Component {
     constructor(props) {
@@ -50,7 +56,11 @@ class Characters extends React.Component {
                         { display }
                     </Col>
                     <Col xs="3">
-                        <Button>Create a New Character</Button>
+                        <Button>
+                            <Link style={buttonStyles} to="/create/character/">
+                                Create a New Character
+                            </Link>
+                        </Button>
                     </Col>
                 </Row>
 

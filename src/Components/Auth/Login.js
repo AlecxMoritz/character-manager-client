@@ -5,7 +5,6 @@ import {
     FormGroup,
     Label,
     Input,
-    FormText
 } from 'reactstrap';
 
 class Login extends React.Component {

@@ -3,8 +3,6 @@ import Login from '../Auth/Login';
 import Signup from '../Auth/Signup';
 
 // stylistic imports
-import { Button } from 'reactstrap';
-
 const styles = {
     height: '80%',
     width: '40%',
