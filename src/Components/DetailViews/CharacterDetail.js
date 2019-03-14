@@ -8,7 +8,8 @@ import {
 import { Link } from 'react-router-dom';
 
 const buttonStyles = {
-    color : 'white'
+    color : 'white',
+    textDecoration: 'none'
 }
 
 class CharacterDetail extends React.Component {
@@ -16,9 +17,31 @@ class CharacterDetail extends React.Component {
         const character = this.props.location.state.character;
         return (
             <Container>
-                <Button>
-                    <Link style={buttonStyles} to="/characters/">Back</Link>
-                </Button>
+                <Row>
+                    <Col xs="4">
+                        <Link style={buttonStyles} to="/characters/">
+                            <Button color="primary">
+                                Back
+                            </Button>
+                        </Link>
+                    </Col>
+                    <Col xs="4"></Col>
+                    <Col xs="1">
+                        <Link style={buttonStyles} to={{
+                                pathname: '/edit/character/',
+                                state: {
+                                    character : character
+                                }
+                            }}>
+                            <Button color="secondary">
+                                Edit
+                            </Button>
+                        </Link>
+                        <Button color="danger">
+                            Delete
+                        </Button>
+                    </Col>
+                </Row>
                 <Row>
                     <Col>
                         <h1>{character.name}</h1>
