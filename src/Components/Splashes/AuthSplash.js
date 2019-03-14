@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from 'reactstrap'
-
+import { AuthContext } from '../Auth/AuthContext';
 //#region 
 import SiteBar from '../UI/Navbar';
 import HomeSplash from '../Splashes/HomeSplash';
@@ -18,27 +18,28 @@ const AuthSplash = (props) => {
         <div>
             <Router>
                 <div>
+                    <AuthContext.Provider value={props.token} >
                     <SiteBar clearToken={props.clearToken} />
                     <Container>
-                    {/* display routes */}
 
                     <Route exact path="/" component={HomeSplash}/>
 
+                    {/* display routes */}
                     <Route path="/characters/" component={Characters} /> 
 
                     {/* create routes */}
                     <Route path="/create/character" component={CreateCharacter} />  
-                    {/* <Route path="/" exact component={} />
 
                     {/* edit routes */}
                     <Route path="/edit/character" component={EditCharacter} />  
 
+                    {/* Detail routes */}
                     <Route path="/character/" component={CharacterDetail} />
+                    
                     {/* <Router path="/items/" component={} /> 
                     <Router path="/spells/" component={} /> 
                     <Router path="/weapons/" component={} /> 
                     <Router path="/account/" component={} />
-                    
                     
                     <Router path="/create/item" component={} />  
                     <Router path="/create/spell" component={} />  
@@ -46,6 +47,7 @@ const AuthSplash = (props) => {
 
                     */}
                     </Container>
+                    </AuthContext.Provider>
                 </div>
             </Router>
         </div>

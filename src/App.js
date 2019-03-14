@@ -42,7 +42,7 @@ class App extends Component {
   }
   
   render() {
-    const home = this.state.token ? <AuthSplash clearToken={this.clearToken} /> : <UnAuthSplash setToken={this.setToken}/>
+    const home = this.state.token ? <AuthSplash clearToken={this.clearToken} token={this.state.token} /> : <UnAuthSplash setToken={this.setToken}/>
     return (
       <div>
         { home }

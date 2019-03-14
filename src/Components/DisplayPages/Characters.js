@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Container, Col, Row } from 'reactstrap';
 import CharacterOverview from '../OverviewViews/CharacterOverview';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Auth/AuthContext';
 
 const buttonStyles = {
     color : 'white',
@@ -17,6 +18,7 @@ class Characters extends React.Component {
     }
 
     componentDidMount() {
+        console.log(this.props)
         this.getCharacters();
     }
 
@@ -25,14 +27,14 @@ class Characters extends React.Component {
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
-                'Authorization' : localStorage.getItem('token')
+                'Authorization' : this.props.auth
             }
         })
         .then(response => response.json())
         .then(data => {
             this.setState({
                 characters : data
-            })
+            }, console.log(this.state))
         })
         .catch(err => console.log(err));
     };
@@ -70,4 +72,9 @@ class Characters extends React.Component {
     }
 }
 
-export default Characters;
+// export default Characters;
+export default props => (
+    <AuthContext.Consumer>
+        { auth => <Characters {...props} auth={auth} /> }
+    </AuthContext.Consumer>
+)

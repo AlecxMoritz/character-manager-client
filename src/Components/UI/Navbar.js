@@ -12,7 +12,7 @@ import {
     DropdownMenu,
     DropdownItem
 } from 'reactstrap';
-
+import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const styles = {
@@ -33,6 +33,14 @@ class SiteNavbar extends React.Component {
             isOpen: !this.state.isOpen
         });
     }
+
+    handleLogout = () => {
+        this.props.clearToken();
+        return <Redirect to={{
+            pathname: '/'
+        }}/>
+    }
+
     render() {
         return (
             <div>
