@@ -18,7 +18,6 @@ class Characters extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props)
         this.getCharacters();
     }
 
@@ -34,7 +33,7 @@ class Characters extends React.Component {
         .then(data => {
             this.setState({
                 characters : data
-            }, console.log(this.state))
+            });
         })
         .catch(err => console.log(err));
     };

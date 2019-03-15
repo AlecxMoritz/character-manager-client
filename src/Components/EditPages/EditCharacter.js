@@ -10,6 +10,7 @@ import {
     Input
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Auth/AuthContext';
 
 const buttonStyles = {
     color : 'white',
@@ -51,7 +52,7 @@ class EditCharacter extends React.Component {
             method : 'PUT',
             headers : {
                 'Content-Type' : 'application/json',
-                'Authorization' : localStorage.getItem('token')
+                'Authorization' : this.props.auth
             },
             body : JSON.stringify({
                 character : this.state
@@ -158,4 +159,8 @@ class EditCharacter extends React.Component {
     }
 }
 
-export default EditCharacter;    
+export default props => (
+    <AuthContext.Consumer>
+        { auth => <EditCharacter {...props} auth={auth} /> }
+    </AuthContext.Consumer>
+)

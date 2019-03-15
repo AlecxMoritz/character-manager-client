@@ -19,7 +19,7 @@ class SelectClass extends React.Component {
         this.setState({
             selectedId : id,
             selectedName: name
-        }, console.log(id, name));
+        });
     };
 
     confirmClassChoice = () => {
@@ -54,7 +54,6 @@ class SelectClass extends React.Component {
             </Container>
         ) : (
             <div>
-                You are making a { this.state.selectedName }
                 <NewCharacterDetailsForm selectedClass={this.props.charClasses.filter(dataSet => dataSet.id === this.state.selectedId)} />
             </div>
 
