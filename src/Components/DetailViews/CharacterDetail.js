@@ -6,6 +6,7 @@ import {
     Button
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import  DeleteButton  from '../Buttons/DeleteButton';
 
 const buttonStyles = {
     color : 'white',
@@ -37,9 +38,7 @@ class CharacterDetail extends React.Component {
                                 Edit
                             </Button>
                         </Link>
-                        <Button color="danger">
-                            Delete
-                        </Button>
+                        <DeleteButton id={character.id} type="character" name={character.name}/>
                     </Col>
                 </Row>
                 <Row>
