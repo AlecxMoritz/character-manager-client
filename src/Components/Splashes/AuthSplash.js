@@ -5,10 +5,16 @@ import { AuthContext } from '../Auth/AuthContext';
 //#region 
 import SiteBar from '../UI/Navbar';
 import HomeSplash from '../Splashes/HomeSplash';
+
+// character
 import CreateCharacter from '../CreatePages/CreateCharacter';
 import EditCharacter from '../EditPages/EditCharacter';
 import Characters from '../DisplayPages/Characters';
 import CharacterDetail from '../DetailViews/CharacterDetail';
+
+// items
+import InventoryItems from '../DisplayPages/InventoryItems';
+import CreateItem from '../CreatePages/CreateItem';
 //#endregion
 
 // component 
@@ -26,6 +32,7 @@ const AuthSplash = (props) => {
 
                     {/* display routes */}
                     <Route path="/characters/" component={Characters} /> 
+                    <Route path="/items/" component={InventoryItems} /> 
 
                     {/* create routes */}
                     <Route path="/create/character" component={CreateCharacter} />  
@@ -35,13 +42,12 @@ const AuthSplash = (props) => {
 
                     {/* Detail routes */}
                     <Route path="/character/" component={CharacterDetail} />
+                    <Route path="/create/item" component={CreateItem} />  
                     
-                    {/* <Router path="/items/" component={} /> 
-                    <Router path="/spells/" component={} /> 
+                    {/* <Router path="/spells/" component={} /> 
                     <Router path="/weapons/" component={} /> 
                     <Router path="/account/" component={} />
                     
-                    <Router path="/create/item" component={} />  
                     <Router path="/create/spell" component={} />  
                     <Router path="/create/weapon" component={} />  
 

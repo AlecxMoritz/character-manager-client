@@ -29,9 +29,7 @@ class DeleteButton extends React.Component {
         }
     })
     .then(response => response.json())
-    .then(data => {
-        // 
-    })
+    .then(data => window.location.href = `/${this.props.type}s`)
     .catch(err => console.log(err))
     
     this.toggle();

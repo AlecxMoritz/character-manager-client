@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, FormGroup, Label, Form, Input, Textarea, FormText, Button } from 'reactstrap';
+import { Container, Row, Col, FormGroup, Label, Form, Input, FormText, Button } from 'reactstrap';
 import { AuthContext } from '../Auth/AuthContext';
 
 class NewCharacterDetailsForm extends React.Component {
@@ -38,7 +38,7 @@ class NewCharacterDetailsForm extends React.Component {
             body : JSON.stringify({ character : this.state })
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => window.location.href = '/characters')
         .catch(err => console.log(err))
     }
 

@@ -64,7 +64,7 @@ class SiteNavbar extends React.Component {
                                         <Link to="/characters/">Characters</Link>
                     </DropdownItem>
                                     <DropdownItem>
-                                        Items
+                                        <Link to="/items/">Items</Link>
                     </DropdownItem>
                                     <DropdownItem>
                                         Spells
