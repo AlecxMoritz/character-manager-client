@@ -1,0 +1,33 @@
+/* .container {} */
+
+.input {
+    border-radius : 15px;
+    height : 1.5em;
+}
+
+.suggestionsContainer {
+    background-color : whitesmoke;
+}
+
+.suggestion {
+    list-style-type: none 
+}
+
+.suggestionHighlighted {}
+
+/*  
+form control
+
+focus 
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+   
+  
+  normal 
+
+  color: #6c757d;
+  opacity: 1;
+  */

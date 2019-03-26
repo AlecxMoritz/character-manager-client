@@ -13,8 +13,6 @@ import Characters from '../DisplayPages/Characters';
 import CharacterDetail from '../DetailViews/CharacterDetail';
 
 // items
-import InventoryItems from '../DisplayPages/InventoryItems';
-import CreateItem from '../CreatePages/CreateItem';
 //#endregion
 
 // component 
@@ -32,7 +30,6 @@ const AuthSplash = (props) => {
 
                     {/* display routes */}
                     <Route path="/characters/" component={Characters} /> 
-                    <Route path="/items/" component={InventoryItems} /> 
 
                     {/* create routes */}
                     <Route path="/create/character" component={CreateCharacter} />  
@@ -42,7 +39,7 @@ const AuthSplash = (props) => {
 
                     {/* Detail routes */}
                     <Route path="/character/" component={CharacterDetail} />
-                    <Route path="/create/item" component={CreateItem} />  
+                    
                     
                     {/* <Router path="/spells/" component={} /> 
                     <Router path="/weapons/" component={} /> 

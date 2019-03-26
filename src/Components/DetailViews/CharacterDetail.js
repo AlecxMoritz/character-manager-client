@@ -7,6 +7,7 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import  DeleteButton  from '../Buttons/DeleteButton';
+import InventoryItems from '../DisplayPages/InventoryItems';
 
 const buttonStyles = {
     color : 'white',
@@ -44,6 +45,7 @@ class CharacterDetail extends React.Component {
                 <Row>
                     <Col>
                         <h1>{character.name}</h1>
+                        <hr />
                         <h3>{character.class}</h3>
                         <p>{character.description}</p>
                     </Col>
@@ -67,8 +69,7 @@ class CharacterDetail extends React.Component {
                 </Row>
                 <Row>
                     <Col>
-                        <h3>Inventory</h3>
-                        <p>Coming Soon</p>
+                        <InventoryItems characterId={character.id} />
                     </Col>
                 </Row>
                 <Row>

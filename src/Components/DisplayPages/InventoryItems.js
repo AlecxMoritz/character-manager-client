@@ -1,28 +1,28 @@
 import React from 'react';
 import { AuthContext } from '../Auth/AuthContext';
-import { Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
 import UserAllItemOverview from '../OverviewViews/UserAllItemOverview';
-
-const linkStyles = {
-    color : 'white',
-    textDecoration : 'none'
-}
+import CreateItemModal from '../CreatePages/CreateItemModal';
+import { Container, Row } from 'reactstrap';
 
 class InventoryItems extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            characterId : this.props.characterId,
             items : []
         }
     }
 
     componentDidMount() {
+        // this.setState({
+        //     characterId : this.props.characterId
+        // });
+
         this.fetchItems();
     }
 
     fetchItems = () => {
-        fetch('http://localhost:4050/api/inv-items/', {
+        fetch(`http://localhost:4050/api/inv-items/${this.state.characterId}`, {
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
@@ -34,7 +34,6 @@ class InventoryItems extends React.Component {
             this.setState({
                 items : data
             });
-            console.log("Data =>", data)
         })
         .catch(err => console.log(err)); 
     }
@@ -42,16 +41,18 @@ class InventoryItems extends React.Component {
     render() {
         const display = this.state.items.length > 0 ? (
             this.state.items.map((item, index) => {
-                return <UserAllItemOverview key={index} item={item} />
+                return <UserAllItemOverview fetchItems={this.fetchItems} characterId={this.state.characterId} key={index} item={item} />
             })
         ) : <p>No user created items yet.</p>
         return (
-            <div>
-                <Button>
-                    <Link to="/create/item" style={linkStyles}>Create New</Link>
-                </Button>
-                { display }
-            </div>
+            <Container>
+                <h1>Inventory Items</h1>
+                <hr />
+                <CreateItemModal characterId={this.state.characterId} fetchItems={this.fetchItems}/>
+                <Row>
+                    { display }
+                </Row>
+            </Container>
         )
     }
 }

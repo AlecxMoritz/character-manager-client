@@ -38,7 +38,7 @@ class SiteNavbar extends React.Component {
         this.props.clearToken();
         return <Redirect to={{
             pathname: '/'
-        }}/>
+        }} />
     }
 
     render() {
@@ -62,10 +62,8 @@ class SiteNavbar extends React.Component {
                                 <DropdownMenu right>
                                     <DropdownItem>
                                         <Link to="/characters/">Characters</Link>
-                    </DropdownItem>
-                                    <DropdownItem>
-                                        <Link to="/items/">Items</Link>
-                    </DropdownItem>
+                                    </DropdownItem>
+
                                     <DropdownItem>
                                         Spells
                     </DropdownItem>
